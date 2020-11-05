@@ -1,0 +1,51 @@
+<div class="container mt-3">
+    <h4>You are searching for {{type}} of {{name}}</h4>
+    <div class="row">
+        <a href="/detail/{{name}}/{{id}}/comics" class="small col-3">
+            <div class="s-holder pb-4 m-0 border">
+                <h5 class="p m-0 vert-center">Comics</h5>
+            </div>
+        </a>
+        <a href="/detail/{{name}}/{{id}}/series" class="small col-3">
+            <div class="s-holder pb-4 m-0 border">
+                <h5 class="p m-0 vert-center">Series</h5>
+            </div>
+        </a>
+        <a href="/detail/{{name}}/{{id}}/stories" class="small col-3">
+            <div class="s-holder pb-4 m-0 border">
+                <h5 class="p m-0 vert-center">Stories</h5>
+            </div>
+        </a>
+        <a href="/detail/{{name}}/{{id}}/events" class="small col-3">
+            <div class="s-holder pb-4 m-0 border">
+                <h5 class="p m-0 vert-center">Events</h5>
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="box">
+                {{#each results}}
+                {{!-- changed from anchor to div --}}
+                <div class="col-3" href="/detail/{{../type}}/{{id}}">
+                    <div class="holder pb-4 border">
+                        <img class="round" src="{{thumbnail.path}}.{{thumbnail.extension}}" alt="">
+                        <h6 class="mt-2">{{title}}</h6>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <form action="/detail/{{name}}/{{id}}/{{type}}">
+            <button class="text-lg round-s bg-white m" type="submit" name="offset" value="{{prevOffset}}">Prev</button>
+            <button class="text-lg round-s bg-white m" type="submit" name="offset" value="{{nextOffset}}">Next</button>
+        </form>
+    </div>
+    <form action="/" method="GET">
+        <button class="text-lg round-s bg-white" type="submit">Go back!</button>
+    </form>
+</div>
