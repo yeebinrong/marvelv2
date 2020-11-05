@@ -3,7 +3,7 @@
     {{#if results}}
     <div class="box row">
         {{#each results}}
-            <a class="col-4" href="/detail/{{name}}/{{id}}/comics">
+            <a class="col-4" href="{{../root}}/detail/{{name}}/{{id}}/comics/q">
                 <div class="holder pb-4 border">
                     <img class="round" src="{{thumbnail.path}}.{{thumbnail.extension}}" alt="">
                     <h5 class="m">{{name}}</h5>
@@ -15,7 +15,7 @@
     <p>No results found related to <strong><em>{{q}}</em></strong> !</p>
     {{/if}}
     <div class="row justify-content-center">
-        <form action="/search">
+        <form action="{{root}}/search">
             <input type="hidden" name="q" value="{{q}}">
             <button class="text-lg round-s bg-white m" type="submit" name="offset" value="{{prevOffset}}">Prev</button>
             <button class="text-lg round-s bg-white m" type="submit" name="offset" value="{{nextOffset}}">Next</button>
